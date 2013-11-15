@@ -21,3 +21,5 @@ $fpoconfig = array(
 
 $fpoScraper = new PatentsScraper($client, $fpoconfig);
 $fpoScraper->createPatentsFiles(__DIR__ . '/fporesults');
+
+echo 'Done !';
