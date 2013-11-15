@@ -1,7 +1,7 @@
 patent-scraper
 ==============
 
-A patent scaper base on the Goutte library.
+A patent scaper based on the Goutte library.
 
 Requirments:
 ===========
