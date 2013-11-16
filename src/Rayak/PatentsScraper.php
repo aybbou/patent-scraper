@@ -66,6 +66,7 @@ class PatentsScraper {
 
                 $filePath = $path . '/' . $nbPatents . '.html';
                 $this->createPatentFile($filePath, $patentContent);
+                echo "$nbPatents.html Created.\n";
                 $nbPatents++;
             }
         }
