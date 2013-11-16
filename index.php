@@ -14,8 +14,8 @@ $fpoconfig = array(
     'nbPages' => 5,
     'patentLinkFilter' => '.listing_table a',
     'patentContentFilter' => '.document-details-wrapper',
-    'searchPage' => '/result.html?sort=relevance&srch=top&submit=&patents=on',
-    'queryParam' => 'query_txt',
+    'searchPage'=>'/result.html?srch=ezsrch&search=Search&pn=&apn=&ttl=&abst=&aclm=&spec=&apd=&apdto=&isd=9%2F15%2F2013&isdto=11%2F15%2F2013&prir=&ccl=&icl=&in=&icn=&is=&ic=&an=&acn=&as=&ac=&ref=&fref=&oref=&parn=&pex=&asex=&agt=&uspat=on&date_range=all&stemming=on&sort=relevance',
+    'queryParam'=>'all',
     'pageParam' => 'p'
 );
 
