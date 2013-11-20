@@ -46,16 +46,20 @@ class PatentsScraper {
     public function createPatentsFiles($path) {
         $patentLinkFilter = isset($this->config['patentLinkFilter']) ? $this->config['patentLinkFilter'] : '';
         $patentContentFilter = isset($this->config['patentContentFilter']) ? $this->config['patentContentFilter'] : '';
-        $nbPages = isset($this->config['nbPages']) ? $this->config['nbPages'] : 1;
 
         $nbPatents = 1;
 
-        for ($page = 1; $page <= $nbPages; $page++) {
+        for ($page = 1;; $page++) {
 
             $fullPageLink = $this->getFullPageLink($page);
 
             $patentsCrawler = $this->client->request('GET', $fullPageLink);
             $patents = $patentsCrawler->filter($patentLinkFilter);
+
+            if ($patents->count() == 0) {
+                echo "\nDone !";
+                break;
+            }
 
             foreach ($patents as $patent) {
                 $patentLink = $this->getPatentLink($patent);
