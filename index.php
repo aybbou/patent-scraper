@@ -18,5 +18,4 @@ $fpoconfig = array(
     'pageParam' => 'p'
 );
 
-$fpoScraper = new PatentsScraper($client, $fpoconfig);
-$fpoScraper->createPatentsFiles(__DIR__ . '/fporesults');
+$fpoScraper = PatentsScraper::createPatentScraper($client, $fpoconfig, __DIR__ . '/fporesults');
