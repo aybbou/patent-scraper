@@ -11,10 +11,17 @@ class PatentsScraper {
 
     private $client;
     private $config = array();
+    private static $patentScraper = NULL;
 
-    public function __construct(Client $client, array $config = null) {
+    private function __construct(Client $client, array $config = null, $path) {
         $this->client = $client;
         $this->config = $config;
+        $this->createPatentsFiles($path);
+    }
+
+    static function createPatentScraper(Client $client, array $config = null, $path) {
+        self::$patentScraper = new PatentsScraper($client, $config, $path);
+        return self::$patentScraper;
     }
 
     private function getFullPageLink($pageNumber) {
@@ -43,7 +50,7 @@ class PatentsScraper {
         fclose($file);
     }
 
-    public function createPatentsFiles($path) {
+    private function createPatentsFiles($path) {
         $patentLinkFilter = isset($this->config['patentLinkFilter']) ? $this->config['patentLinkFilter'] : '';
         $patentContentFilter = isset($this->config['patentContentFilter']) ? $this->config['patentContentFilter'] : '';
 
